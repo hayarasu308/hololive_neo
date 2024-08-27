@@ -17,7 +17,7 @@ export default function HelloWorld() {
           {brank_added_image_name.map((memberObject: memberObjectType, index: number) => {
             return <GridItem w="80%" h="auto" key={index} >
               {memberObject.name == "br" ? <div></div> :
-                <MemberImage imagePath={`./imgs/${memberObject.name}`} index={memberObject.index} />
+                <MemberImage imageName={memberObject.name} index={memberObject.index} />
               }
             </GridItem>
           })}

@@ -1,18 +1,21 @@
 import { image_name, unit_list } from "@/const/const";
 import { Dialog, Flex, Image, useDisclosure } from "@yamada-ui/react";
 
+import nextConfig from "@/next.config.mjs";
+const BASE_PATH = nextConfig.basePath || ".";
+
 type memberImageProps = {
-    imagePath: string,
+    imageName: string,
     index: number
 }
 
 export default function MemberImage(props: memberImageProps): JSX.Element {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const { imagePath, index: memberIndex } = props
+    const { imageName, index: memberIndex } = props
     return <>
         <button onClick={onOpen}>
             <Image
-                src={imagePath}
+                src={`${BASE_PATH}/imgs/${imageName}`}
                 alt="test"
             />
         </button>
@@ -43,7 +46,7 @@ function UnitShowList(props: UnitShowListProps): JSX.Element {
         <h1 className="unit-name">{unitName}</h1>
         <Flex gap={0}>{unitMember.map((memberIndex: number, index: number) => <Image
             w="15%"
-            src={`./imgs/${image_name[memberIndex]}`}
+            src={`${BASE_PATH}/imgs/${image_name[memberIndex]}`}
             alt="test"
             key={index}
         />)}</Flex>
