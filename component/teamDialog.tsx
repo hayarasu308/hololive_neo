@@ -11,7 +11,7 @@ type memberImageProps = {
 
 export default function MemberImage(props: memberImageProps): JSX.Element {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const { imageName, index: memberIndex } = props
+    const { imageName, index: memberIndex } = props;
     return <>
         <button onClick={onOpen}>
             <Image
